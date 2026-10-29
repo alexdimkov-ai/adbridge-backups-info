@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Описание личного инструмента AD Bridge Backups, доступа к Google Drive и шифрования резервных копий.">
+<title>AD Bridge Backups — резервное копирование</title>
+<style>:root{color-scheme:light;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#202124;background:#f6f7f9}
+*{box-sizing:border-box}body{margin:0;line-height:1.65}header,main,footer{max-width:860px;margin:auto;padding:24px}
+header{display:flex;gap:20px;justify-content:space-between;align-items:center;border-bottom:1px solid #dde1e7}
+.brand{font-weight:750;text-decoration:none;color:#202124}nav{display:flex;gap:20px;flex-wrap:wrap;font-size:14px}
+a{color:#174ea6;text-underline-offset:3px}a:hover{text-decoration-thickness:2px}a:focus-visible{outline:3px solid #174ea6;outline-offset:5px}
+main{padding-top:48px;padding-bottom:48px}h1{font-size:clamp(30px,5vw,44px);line-height:1.16;letter-spacing:-.03em;margin:0 0 24px}
+h2{font-size:22px;line-height:1.3;margin-top:34px}p,li{font-size:17px}li+li{margin-top:8px}
+.lead{font-size:20px;color:#46505f}.eyebrow{font-size:13px;text-transform:uppercase;letter-spacing:.09em;color:#596579;margin-bottom:14px}
+.card{background:#fff;border:1px solid #dde1e7;border-radius:14px;padding:24px;margin:28px 0}.card h2{margin-top:0}
+code{font-size:.9em;background:#edf0f5;border-radius:4px;padding:2px 5px;overflow-wrap:anywhere}
+.note,footer{font-size:14px;color:#596579}footer{border-top:1px solid #dde1e7;padding-bottom:36px}footer p{font-size:14px}
+@media(max-width:580px){header{align-items:flex-start;flex-direction:column;gap:12px}main{padding-top:32px}.card{padding:18px}}</style>
+</head>
+<body>
+<header>
+<a class="brand" href="./">AD Bridge Backups</a>
+<nav aria-label="Основная навигация">
+<a href="./" aria-current="page">О приложении</a>
+<a href="privacy.html">Конфиденциальность</a>
+</nav>
+</header>
+<main id="main">
+
+<p class="eyebrow">Личный инструмент · Google Drive</p>
+<h1>Резервные копии<br>AD Bridge</h1>
+<p class="lead">AD Bridge Backups сохраняет зашифрованные резервные копии данных моста между Пачкой и Telegram в Google Drive владельца. Инструмент предназначен для личного использования владельцем, а не для регистрации сторонних пользователей.</p>
+<section class="card" aria-labelledby="purpose">
+<h2 id="purpose">Для чего нужен доступ</h2>
+<p>После настройки и разрешения владельца приложение создаёт файлы резервного репозитория, читает их для проверки и восстановления, а также обновляет и удаляет собственные устаревшие данные согласно настройкам хранения.</p>
+<p>Копирование выполняется на сервере. Восстановление и проверка копии возможны на отдельном компьютере владельца.</p>
+</section>
+<h2>Какие права запрашиваются</h2>
+<p>Используется разрешение <code>https://www.googleapis.com/auth/drive.file</code>. Оно позволяет работать с файлами, созданными приложением или явно предоставленными ему пользователем. Это не разрешение на доступ ко всему содержимому Google Drive.</p>
+<p>В этой конфигурации приложение работает с собственным репозиторием в папке <code>AD_Bridge_Backups/restic</code>. Выбор папки сам по себе не заменяет ограничения OAuth.</p>
+<h2>Как защищаются данные</h2>
+<p>Содержимое резервного комплекта шифруется restic перед отправкой; rclone обеспечивает передачу в Google Drive. Пароль расшифрования хранится владельцем отдельно от облачной копии. В Google Drive могут быть видны размеры, названия служебных объектов и время их изменения.</p>
+<p>Сайт содержит только информацию о приложении. Здесь нет входа в Google, загрузки резервных копий или формы ввода секретов. Авторизация запускается отдельно установленным инструментом через страницу Google.</p>
+<p><a href="privacy.html">Прочитать политику конфиденциальности →</a></p>
+<h2>Вопросы и поддержка</h2>
+<p>Связаться с разработчиком можно через <a href="https://github.com/alexdimkov-ai/adbridge-backups-info/issues">раздел Issues</a>. Обращения там публичные: не публикуйте токены, пароли, содержимое копий или частную переписку. Для вопросов об OAuth также используйте адрес поддержки, указанный на экране согласия Google.</p>
+
+</main>
+<footer>
+<p>AD Bridge Backups · Личный инструмент резервного копирования.</p>
+<p>Разработчик: <a href="https://github.com/alexdimkov-ai">alexdimkov-ai</a> · <a href="https://github.com/alexdimkov-ai/adbridge-backups-info/issues">Связаться с разработчиком</a></p>
+</footer>
+</body>
+</html>
